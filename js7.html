@@ -1,0 +1,41 @@
+<html>
+<head>
+<script type="text/javascript">
+var img = null;
+var isMoving = false;
+
+function init() {
+  img = document.getElementById('myimg');
+  img.style.position = 'relative';
+  img.style.left = '50px';
+}
+
+function moveRight() {
+  if (isMoving) {
+    img.style.left = parseInt(img.style.left) + 10 + 'px';
+  }
+}
+
+function startMoving() {
+  isMoving = true;
+  setInterval(moveRight, 10); // Move the image every 10 milliseconds
+}
+
+function stopMoving() {
+  isMoving = false;
+}
+
+window.onload = init;
+</script>
+</head>
+<body>
+<form>
+  <img id="myimg" src="train1.png" />
+  <center>
+    <p>Click the below buttons to move the image right</p>
+    <input type="button" value="Start" onclick="startMoving();" />
+    <input type="button" value="Stop" onclick="stopMoving();" />
+  </center>
+</form>
+</body>
+</html>
